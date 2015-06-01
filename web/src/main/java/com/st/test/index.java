@@ -15,6 +15,6 @@ public class index {
     
     public String  login() {
         log.info("hello  i am =====");
-        return "succerss";
+        return "success";
     }
 }
