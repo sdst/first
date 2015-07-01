@@ -84,6 +84,11 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>3.6.5.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.6.5.Final</version>
+		</dependency>
 		<!-- struts2 -->
 		<dependency>
 			<groupId>org.apache.struts</groupId>
@@ -148,6 +153,25 @@
 			<artifactId>spring-orm</artifactId>
 			<version>3.1.1.RELEASE</version>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>3.1.1.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>3.1.1.RELEASE</version>
+        </dependency>
+        <!--
+            Spring Transaction 事务
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>3.1.1.RELEASE</version>
+        </dependency>
 		<!-- 添加Log4J依赖 -->
 		<dependency>
 			<groupId>log4j</groupId>
@@ -181,11 +205,6 @@
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
-            <version>${shiro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-all</artifactId>
             <version>${shiro.version}</version>
         </dependency>
 		<!-- shiro end -->
