@@ -46,8 +46,34 @@
     </bean>
 
 
+     <!-- 事务 begin-->
+    <!-- 事务管理器配置,单数据源事务 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
     <!-- 使用annotation定义事务 -->
     <!-- <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" /> -->
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="create*" propagation="REQUIRED"/>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="do*" propagation="REQUIRED"/>
+            <tx:method name="publish*" propagation="REQUIRED"/>
+            <tx:method name="write*" propagation="REQUIRED"/>
+            <tx:method name="*" propagation="REQUIRED" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="serviceMethods" expression="execution(* org.all.*.service.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
+    </aop:config>
+    <!-- 事务 end-->
 
 
     <!-- shiro begin -->
